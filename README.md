@@ -1,4 +1,4 @@
-#Java-Advanced-Course 2023
+# Java-Advanced-Course 2023
 Решения для [Java Advanced course](https://www.kgeorgiy.info/courses/java-advanced/)
 
 ## Walk
@@ -11,4 +11,4 @@
 
 ## StudentsBD
 * Домашнее задание на использование [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
-* Класс реализующий интерфейс `AdvancedQuery`
+* Класс реализующий интерфейс [`AdvancedQuery`](https://github.com/AverageBrain/java-course/blob/main/test/modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/AdvancedQuery.java)
