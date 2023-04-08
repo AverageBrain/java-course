@@ -6,7 +6,7 @@
 * Формат запуска: `java Walk` <входной файл> <выходной файл>. 
 * Выходной файл содержит хеш файла(SHA-256) и путь к файлу, если произошла ошибка при чтении, то в качестве хэша выводятся все нули
 
-## [ArraySet](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/walk)
+## [ArraySet](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/arrayset)
 * Класс реализует интерфейс [NavigableSet](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/NavigableSet.html)
 
 ## [StudentsBD](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/student)
