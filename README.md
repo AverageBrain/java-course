@@ -13,11 +13,11 @@
 * Домашнее задание на использование [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)
 * Класс реализующий интерфейс `AdvancedQuery`
 
-## Implementor
+## [Implementor](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/implementor)
 * Класс, генерирующий реализации классов и интерфейсов
 * При запуске с аргументом -jar, должен генерировать .jar-файл с реализацией
 
-## Concurrent
+## [Concurrent](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/concurrent)
 * Итеративный параллелизм, реализовать `IterativeParallelism`, который обрабатывает списки в несколько поток и реализует метода
 	* minimum(threads, list, comparator) — первый минимум;
 	* maximum(threads, list, comparator) — первый максимум;
@@ -35,12 +35,12 @@
 	* Конструктор `ParallelMapperImpl(int threads)` создает threads рабочих потоков, которые могут быть использованы для распараллеливания.
 	* Задания на исполнение должны накапливаться в очереди и обрабатываться в порядке поступления.
 
-## Web-Crawler
+## [Web-Crawler](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/crawler)
 * Написать потокобезопасный класс, который рекурсивно обходит сайты
 * Реализует интерфейс `Crawler`
 * Для загразки используется [`Downloader`](https://github.com/AverageBrain/java-course/blob/main/test/modules/info.kgeorgiy.java.advanced.crawler/info/kgeorgiy/java/advanced/crawler/Downloader.java)
 
-## HelloUDP и HelloNonBlockingUDP
+## [HelloUDP и HelloNonBlockingUDP](https://github.com/AverageBrain/java-course/tree/main/src/info/kgeorgiy/ja/morozov/hello)
 * Реализовать сервер и клиент, взаимодействующие по UDP
 	* Класс `HelloUDPClient` отправляет запросы на сервер, принимает результаты и выводит их на консоль.
 		* Запросы одновременно отсылаются в указанном числе потоков. Каждый поток ожидает обработки своего запроса и выводит сам запрос и результат его обработки на консоль. Если запрос не был обработан, он посылается заново.
