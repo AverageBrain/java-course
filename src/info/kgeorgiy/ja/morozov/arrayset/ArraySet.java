@@ -6,12 +6,12 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     private final List<T> data;
     private final Comparator<? super T> comparator;
 
-    public ArraySet(ArrayView<T> data, Comparator<? super T> comparator) {
+    private ArraySet(ArrayView<T> data, Comparator<? super T> comparator) {
         this.data = data;
         this.comparator = comparator;
     }
 
-    public ArraySet(List<T> data, Comparator<? super T> comparator) {
+    private ArraySet(List<T> data, Comparator<? super T> comparator) {
         this.data = data;
         this.comparator = comparator;
     }
@@ -21,15 +21,15 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     public ArraySet(SortedSet<T> data, Comparator<? super T> comparator) {
+        assert data.comparator() != null;
         if (data.comparator().equals(comparator)) {
             this.data = List.copyOf(data);
-            this.comparator = comparator;
         } else {
             TreeSet<T> tmpTreeSet = new TreeSet<>(comparator);
             tmpTreeSet.addAll(data);
             this.data = List.copyOf(tmpTreeSet);
-            this.comparator = comparator;
         }
+        this.comparator = comparator;
     }
 
     public ArraySet(Collection<? extends T> data, final Comparator<? super T> comparator) {
@@ -113,13 +113,24 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         return descendingSet().iterator();
     }
 
+    @SuppressWarnings("unchecked")
+    private int compare(T a, T b) {
+        if (comparator == null) {
+            return ((Comparable<T>) a).compareTo(b);
+        }
+        return comparator.compare(a, b);
+    }
+
     private NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive,
                                    boolean exception) {
         int l = upperBound(fromElement, fromInclusive);
         int r = lowerBound(toElement, toInclusive);
         if (l > r) {
-            if (!exception) return new ArraySet<>(Collections.emptyList(), comparator);
-            throw new IllegalArgumentException("Left border more than right border");
+            if (exception && compare(fromElement, toElement) > 0) {
+                throw new IllegalArgumentException("Left border more than right border");
+            } else {
+                return new ArraySet<>(Collections.emptyList(), comparator);
+            }
         }
         return new ArraySet<>(data.subList(l, r + 1), comparator);
     }

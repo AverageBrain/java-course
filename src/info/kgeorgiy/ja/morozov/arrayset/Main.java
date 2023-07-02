@@ -6,15 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(6);
-        list.add(4);
+        list.add(1539305624);
+        list.add(1297757019);
         ArraySet<Integer> set = new ArraySet<>(list);
-        NavigableSet<Integer> x = set.descendingSet();
-        NavigableSet<Integer> y = x.descendingSet();
-        Iterator<Integer> iter = set.iterator();
-        if (iter.hasNext()) {
-            Integer i = iter.next();
-        }
+        ArraySet<Integer> x = (ArraySet<Integer>) set.subSet(-1621015911, false, -1429233748, false);
+        x.dump();
     }
 }
